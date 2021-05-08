@@ -1,7 +1,49 @@
 <html lang="en">
   <head>
       <style>
-    
+
+          .form-wrap{
+              position: relative;
+          }
+        .form-wrap::before{
+
+            /*styling background*/
+
+            content: ' ';
+            display: block;
+            position: absolute;
+            opacity: .5;
+            left: 0;
+            top: 0;
+            background-image: url(https://images.pexels.com/photos/4231426/pexels-photo-4231426.jpeg?cs=srgb&dl=pexels-taryn-elliott-4231426.jpg&fm=jpg);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            width: 100vw;
+            height: 100vw;
+        }
+
+
+        #survey-form{
+            position: relative;
+         
+        }
+
+        #survey-form::before{
+            background-color: #DB8A74;
+            opacity: .5;
+            position: absolute;
+        }
+
+        #title{
+            position: relative;
+        }
+
+        #description{
+            position: relative;
+        }
+      /*validation of data types */
 
       </style>
       
@@ -9,48 +51,122 @@
 
 
   <body>
-
-    <H1 id="title"> Survey Form</H1>
-    <p id="description"> Thanks for taking five minutes to fill out this form. This will helps us</p>
-
-    <!--Create Form-->
-    <form id= "survey-form"> 
-
-        <!--Personal Info Section-->
-
-        <!--Full Name-->
-        <div class="form-type">
-            <label for="firstname" id="label-firstname">
-                Fist Name
-            </label>
-            <input type="text"
-                   id+"firstname">
-            
-             <input type="text"
-                   id+"lastname"
-                   placeholder="enter last name">      
-
-
-        </div>
-       
-        <!--E-mail-->
-        <div class="form-type">
-            <label for="e-mail" id="label-firstname">
-                Fist Name
-            </label>
-            <input type="text"
-                    id="e-mail"
-                    placeholder="enter your email">
-                    <!--validation for e-mail-->
-        </div>
-
-        <!--PhoneNumber-->
-        <div class="form-type">
-        <input type="text"
-                id="number"
-                placeholder="enter your cell number">
-        <!--validation for number -->        
+    <div class="form-wrap"> 
+    <div class-form-type">
+        <H1 id="title"> Survey Form</H1>
+        <p id="description"> Thanks for taking five minutes to fill out this form. This will helps us</p>
+    
     </div>
-    </form>
-  </body>
+    
+    <!--Create Form-->
+   
+        <form id= "survey-form"> 
+
+            <!--Personal Info Section-->
+    
+            <!--Full Name-->
+            <div class="form-type">
+                <label for="name" id="name-label">
+                    First Name
+                </label>
+                <input type="text" required
+                       id="name"
+                       placeholder="enter first name">
+                <label for="lastname" id="lastname-label">
+                        Last Name
+                    </label>
+                 <input type="text"
+                       id="lastname"
+                       placeholder="enter last name">      
+    
+            </div>
+           
+            <!--E-mail-->
+            <div class="form-type">
+                <label for="email" id="email-label">
+                    E-mail
+                </label>
+                <input type="email"
+                        id="email"
+                        placeholder="username@email"
+                        pattern=".+@globex.com" 
+                        required>
+                        <!--validation for e-mail-->
+            </div>
+    
+            <!--PhoneNumber-->
+            <div class="form-type">
+                <label for="number" id="number-label">
+                    Number
+                </label>
+                <input type="text" minlength="7"
+                    id="number"
+                    placeholder="enter your cell number"
+                    pattern="[0-9]{3} - [0-9]{3}-[0-9]{4}">
+                
+            <!--validation for number --> 
+           
+            </div>
+    
+            <!--dropdown-->
+            <div class="form-type">
+                <label for="lockdownactivity" id="lockdown-label">
+                    What did lockdown give you an opportunity to do? 
+                </label>
+                <select name="dropdown" id="dropdown">
+                    <option value="learn">Took Online Classes</option>
+                    <option value-"socialmedia"> Got Active on Social Media</option>
+                    <option value="selfcare">Self-Care</option>
+                    <option value="other">Other</option>
+                </select>
+    
+            </div>
+                
+           
+    
+            <!--radiobutton-->
+    
+            <div class="form-type">
+                <legend>Check which best applies. 1 = very unlikely 5= Definitely</legend>
+
+                <label for="option1">
+                    <input id="notlikely" type="radio" name="levels" value="one">very unlikely </input>
+                    <input id="probablynot" type="radio" name="levels" value="two">probably not likely </input>
+                </label>
+                
+            </div>
+    
+            <!--checkbox-->
+    
+            <div class="form-type">
+                <label> Check all that apply</label>
+    
+                <label for="checklist1"> 
+                    <input id="flexibility" type="checkbox" name="button1"> flexibility </label>
+                </label>
+                <label for="checklist2"> 
+                    <input id="self-care" type="checkbox" name="button1"> self-care </label>
+                </label>
+    
+    
+            </div>
+    
+            <!--commentsection-->
+    
+            <textarea name="comment" id="comment" 
+                placeholder="Enter your answer here">
+            </textarea>
+    
+            <!--submit button-->
+           
+            
+            <button type="submit" value="submit" id="submit"> Submit</button>
+            
+
+        </form>
+    </div>
+        <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+      </body>
+    
+    
 </html>
